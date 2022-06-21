@@ -1,6 +1,7 @@
 package com.example.customannotationinteceptor;
 
 import com.example.customannotationinteceptor.interceptions.BasicAuthInterception;
+import com.example.customannotationinteceptor.interceptions.WriteInterception;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -10,5 +11,6 @@ public class AppConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         //WebMvcConfigurer.super.addInterceptors(registry);
         registry.addInterceptor(new BasicAuthInterception());
+        registry.addInterceptor(new WriteInterception());
     }
 }

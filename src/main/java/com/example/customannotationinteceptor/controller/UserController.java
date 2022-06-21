@@ -1,6 +1,7 @@
 package com.example.customannotationinteceptor.controller;
 
 import com.example.customannotationinteceptor.annotations.BscAuth;
+import com.example.customannotationinteceptor.annotations.Write;
 import com.example.customannotationinteceptor.model.User;
 import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,14 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+
     @PostMapping
+    @Write(name = "admin")
     public ResponseEntity<User> postUser(){
         User user=new User();
-        user.username="auth yok";
+        user.username="admin";
+        String val=user.username;
+
         user.password="123";
         return ResponseEntity.ok(user);
     }
